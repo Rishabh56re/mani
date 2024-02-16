@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do you love me?</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9e8e8; /* light pink background */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Make the body fill the viewport height */
+  }
+  h1 {
+    color: #333;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  #yes {
+    background-color: #90ee90; /* light green */
+  }
+  #no {
+    background-color: #ff6666; /* light red */
+  }
+  .teddy {
+    animation: bounce 1s infinite alternate; /* Bouncing animation */
+  }
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+  }
+  .hidden {
+    display: none; /* Hide the image initially */
+  }
+</style>
+</head>
+<body>
+<img src="kiss.gif" alt="Teddy Bear" width="150" class="teddy">
+<h1>Mannii, do you love me?</h1>
+<div>
+  <button id="yes" onclick="showGirl();">Yes</button>
+  <button id="no" onclick="increaseYes()">No</button>
+</div>
+<img src="cuteboy.jpg" alt="Cute Girl" width="200" class="hidden" id="girlImage">
+<script>
+  var yesFontSize = 18; // Initial font size for "Yes" button
+  
+  function increaseYes() {
+    var yesButton = document.getElementById("yes");
+    yesFontSize *= 2; // Double the font size
+    yesButton.style.fontSize = yesFontSize + "px";
+  }
+
+  function showGirl() {
+    var girlImage = document.getElementById("girlImage");
+    girlImage.classList.remove("hidden"); // Show the image
+    var teddyImage = document.querySelector(".teddy");
+    teddyImage.classList.add("hidden"); // Hide the teddy bear image
+    var heading = document.querySelector("h1");
+    heading.innerText = "I love you too!"; // Change heading text
+    var yesButton = document.getElementById("yes");
+    yesButton.style.display = "none"; // Hide the "Yes" button
+    var noButton = document.getElementById("no");
+    noButton.style.display = "none"; // Hide the "No" button
+  }
+</script>
+</body>
+</html>
